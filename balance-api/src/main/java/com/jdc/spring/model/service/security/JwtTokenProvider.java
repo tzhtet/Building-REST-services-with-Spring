@@ -44,7 +44,11 @@ public class JwtTokenProvider {
 	}
 	
 	public String generateAccessToken(Authentication authentication) {
-		return ""; 
+		return generate(authentication, accessExpiration); 
+	}
+	
+	public String generateRefreshToken(Authentication authentication) {
+		return generate(authentication, refreshExpiration);
 	}
 	
 	private String generate(Authentication authentication, int expiration) {
