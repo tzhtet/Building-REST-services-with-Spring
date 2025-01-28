@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jdc.spring.api.input.EmployeeForm;
 import com.jdc.spring.api.input.EmployeeStatusForm;
 import com.jdc.spring.api.output.EmployeeInfo;
+import com.jdc.spring.api.output.EmployeeInfoDetails;
 import com.jdc.spring.model.service.EmployeeService;
 
 @RestController
@@ -23,6 +25,17 @@ public class EmployeeApi {
 	
 	@Autowired
 	private EmployeeService service;
+	
+	
+	@GetMapping("{id}")
+	EmployeeInfoDetails findById(@PathVariable int id) {
+		return service.findById(id);
+	}
+	
+	@GetMapping("{id}/edit")
+	EmployeeForm findByIdForEdit(@PathVariable int id) {
+		return service.findByIdForEdit(id);
+	}
 	
 	
 	@PostMapping

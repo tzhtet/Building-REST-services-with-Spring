@@ -29,6 +29,14 @@ public record EmployeeForm(
 	
 	private static final CharSequence DEFAULT_PASS = "123456";
 	
+	public static EmployeeForm from(Employee entity) {
+		return new EmployeeForm(
+				entity.getAccount().getName(),
+				entity.getAccount().getRole(),
+				entity.getPhone(),
+				entity.getEmail());
+	}
+	
 	
 	public Employee entity(PasswordEncoder passwordEncoder) {
 		var account = new Account();

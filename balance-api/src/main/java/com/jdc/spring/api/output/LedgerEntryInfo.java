@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import com.jdc.spring.model.BalanceType;
+import com.jdc.spring.model.entity.Employee;
 
 public record LedgerEntryInfo(
 		String id,
@@ -17,5 +18,16 @@ public record LedgerEntryInfo(
 		BigDecimal amount,
 		String remark
 		) {
+	
+	
+	public static EmployeeInfo from(Employee entity) {
+		return new EmployeeInfo(
+				entity.getId(),
+				entity.getAccount().getName(),
+				entity.getAccount().getRole(), 
+				entity.getStatus(),
+				entity.getPhone(), 
+			    entity.getEmail());
+	}
 
 }

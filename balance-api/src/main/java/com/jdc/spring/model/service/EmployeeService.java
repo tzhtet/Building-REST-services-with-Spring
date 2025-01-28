@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import com.jdc.spring.api.input.EmployeeForm;
 import com.jdc.spring.api.input.EmployeeStatusForm;
 import com.jdc.spring.api.output.EmployeeInfo;
+import com.jdc.spring.api.output.EmployeeInfoDetails;
 import com.jdc.spring.events.EmployeeChangeEvent;
 import com.jdc.spring.model.EmployeeChanges;
 import com.jdc.spring.model.repo.EmployeeRepo;
@@ -31,6 +32,10 @@ public class EmployeeService {
 	
 	@Autowired
 	private ApplicationEventPublisher eventPublisher;
+	
+	public EmployeeInfoDetails findById(int id) {
+		return getOne(repo.findById(id).map(EmployeeInfoDetails::from), DOMAIN_NAME, id);
+	}
 	
 	public EmployeeInfo create(EmployeeForm form) {
 		var entity = form.entity(passwordEncoder);
@@ -51,5 +56,12 @@ public class EmployeeService {
 		eventPublisher.publishEvent(new EmployeeChangeEvent(EmployeeChanges.StatusChange, entity.getId()));
 		return EmployeeInfo.from(entity);
 	}
+
+	public EmployeeForm findByIdForEdit(int id) {
+		return getOne(repo.findById(id).map(EmployeeForm::from)
+				, DOMAIN_NAME, id);
+	}
+
+	
 	
 }
