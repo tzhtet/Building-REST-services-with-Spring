@@ -4,6 +4,9 @@ import com.jdc.spring.model.Role;
 import com.jdc.spring.model.Status;
 import com.jdc.spring.model.entity.Employee;
 
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
+
 public record EmployeeInfo(
 		int id,
 		String name,
@@ -21,6 +24,10 @@ public record EmployeeInfo(
 				entity.getStatus(),
 				entity.getPhone(),
 				entity.getEmail());
+	}
+
+	public static void select(CriteriaQuery<EmployeeInfo> cq, Root<Employee> root) {
+		//var account = root.join(Employee_.account);
 	}
 
 }
