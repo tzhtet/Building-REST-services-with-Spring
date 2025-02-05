@@ -36,5 +36,7 @@
 	<modules>
 		<module>spring-security-xml</module>
 		<module>spring-security-java-base-config</module>
+		<module>spring-security-getting-start</module>
+		<module>spring-security-boot</module>
 	</modules>
 </project>
