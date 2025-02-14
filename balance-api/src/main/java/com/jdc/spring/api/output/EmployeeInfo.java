@@ -27,7 +27,6 @@ public record EmployeeInfo(
 	}
 
 	public static void select(CriteriaQuery<EmployeeInfo> cq, Root<Employee> root) {
-		//var account = root.join(Employee_.account);
 	}
 
 }
