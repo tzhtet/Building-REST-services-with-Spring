@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import com.jdc.spring.master.entity.ProductStockHistory.Action;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
@@ -26,6 +28,19 @@ public class ProductStockHistoryPk implements Serializable {
 	@Column(name = "product_id")
 	private int productId;
 	
+	@Column(name = "seq_number")
 	private int seqNumber;
+	
+	private Action action;
+	
+	public void setStockAction(ProductStockAction stockAction) {
+		this.issueAt = stockAction.getIssueAt();
+		this.seqNumber = stockAction.getSeqNumber();
+		
+	}
+	
+	public String getCode() {
+		return "%s-%03d".formatted(issueAt.format(DF), seqNumber);
+	}
 
 }

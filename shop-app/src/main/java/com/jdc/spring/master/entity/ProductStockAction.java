@@ -1,5 +1,10 @@
 package com.jdc.spring.master.entity;
 
-public class ProductStockAction {
+import java.time.LocalDate;
+
+public interface ProductStockAction {
+	
+	LocalDate getIssueAt();
+	int getSeqNumber();
 
 }
