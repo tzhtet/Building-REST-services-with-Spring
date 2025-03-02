@@ -1,4 +1,4 @@
-package com.jdc.spring.model.account;
+package com.jdc.spring.model.account.entity;
 
 import java.util.UUID;
 
