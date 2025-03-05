@@ -23,6 +23,7 @@ public class Account {
 	@Column(nullable = false)
 	private String password;
 	
+	private Role role;
 	
 	public enum Role{
 		Admin, Customer
