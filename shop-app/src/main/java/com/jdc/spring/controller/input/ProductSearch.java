@@ -1,5 +1,10 @@
 package com.jdc.spring.controller.input;
 
-public class ProductSearch {
+public record ProductSearch(
+		Integer supplierId,
+		String keyword,
+		Integer stockFrom,
+		Integer stockTo
+		) {
 
 }
