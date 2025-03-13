@@ -30,7 +30,7 @@ public class ProductStockHistory {
 	}
 	
 	public enum Action{
-		Buy,Sell
+		Buy,Sell, Cancel
 	}
 
 }
