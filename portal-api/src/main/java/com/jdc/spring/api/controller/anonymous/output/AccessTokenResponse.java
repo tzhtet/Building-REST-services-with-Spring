@@ -1,4 +1,4 @@
-package com.jdc.spring.api.controller.output;
+package com.jdc.spring.api.controller.anonymous.output;
 
 public record AccessTokenResponse(
 		String name,
