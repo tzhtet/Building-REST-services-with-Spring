@@ -11,11 +11,11 @@ public class PasswordSecret {
 	@Value("${public.key.change.password}")
 	private String publicKey;
 	
-	private String getPrivateKey() {
+	public String getPrivateKey() {
 		return privateKey;
 	}
 	
-	private String getPublicKey() {
+	public String getPublicKey() {
 		return publicKey;
 	}
 
